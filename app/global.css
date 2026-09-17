@@ -1279,10 +1279,10 @@ a {
 .invitation-gate-copy {
   position: relative;
   z-index: 1;
-  padding: 20%;
+  padding: 20% 8%;
   color: #45301f;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(28px, 8vw, 45px);
+  font-size: clamp(20px, 5.2vw, 30px);
   font-weight: 600;
   line-height: 0.96;
   letter-spacing: -0.035em;

@@ -46,7 +46,7 @@ export default function Home() {
               sizes="100vw"
               className="invitation-gate-image"
             />
-            <span className="invitation-gate-copy">You&apos;re invited!<br />Tap for details</span>
+            <span className="invitation-gate-copy">It&apos;s Wedding Season<br />Tap for details</span>
           </button>
         </div>
       )}
