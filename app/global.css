@@ -1229,3 +1229,63 @@ a {
   font-style: italic;
   font-weight: 500;
 }
+
+.site-shell:not(.is-invitation-open) > :not(.invitation-gate) {
+  filter: blur(9px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.invitation-gate {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(33, 25, 15, 0.28);
+}
+
+.invitation-gate-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(84vw, 390px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  background: #f5eee3;
+  box-shadow: 0 24px 70px rgba(24, 16, 8, 0.38);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.invitation-gate-card:hover {
+  transform: scale(1.025);
+  box-shadow: 0 28px 78px rgba(24, 16, 8, 0.45);
+}
+
+.invitation-gate-card:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 5px;
+}
+
+.invitation-gate-image {
+  object-fit: cover;
+}
+
+.invitation-gate-copy {
+  position: relative;
+  z-index: 1;
+  padding: 20%;
+  color: #45301f;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(28px, 8vw, 45px);
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  text-align: center;
+  text-shadow: 0 1px 16px rgba(255, 255, 255, 0.9);
+}

@@ -1,49 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 
-export default function MusicPlayer() {
+export type MusicPlayerHandle = {
+  play: () => void;
+};
+
+const MusicPlayer = forwardRef<MusicPlayerHandle>(function MusicPlayer(_, ref) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
+  const playMusic = async () => {
+    if (!audioRef.current) return;
 
-    const startMusic = async () => {
-      try {
-        await audio.play();
-        setIsPlaying(true);
-      } catch {
-        // A first interaction is required by some browsers before sound can play.
-      }
-    };
+    try {
+      await audioRef.current.play();
+      setIsPlaying(true);
+    } catch {
+      // The tap on the invitation is the browser-recognized playback gesture.
+    }
+  };
 
-    const startAfterFirstInteraction = (event: Event) => {
-      if (
-        event.target instanceof Element &&
-        event.target.closest(".music-toggle")
-      ) {
-        return;
-      }
-
-      void startMusic();
-      window.removeEventListener("pointerdown", startAfterFirstInteraction);
-      window.removeEventListener("click", startAfterFirstInteraction);
-      window.removeEventListener("keydown", startAfterFirstInteraction);
-    };
-
-    void startMusic();
-    window.addEventListener("pointerdown", startAfterFirstInteraction);
-    window.addEventListener("click", startAfterFirstInteraction);
-    window.addEventListener("keydown", startAfterFirstInteraction);
-
-    return () => {
-      window.removeEventListener("pointerdown", startAfterFirstInteraction);
-      window.removeEventListener("click", startAfterFirstInteraction);
-      window.removeEventListener("keydown", startAfterFirstInteraction);
-    };
-  }, []);
+  useImperativeHandle(ref, () => ({ play: () => void playMusic() }));
 
   const toggleMusic = async () => {
     if (!audioRef.current) return;
@@ -54,12 +32,7 @@ export default function MusicPlayer() {
       return;
     }
 
-    try {
-      await audioRef.current.play();
-      setIsPlaying(true);
-    } catch {
-      // The play request may still be blocked until a browser-recognized gesture.
-    }
+    await playMusic();
   };
 
   return (
@@ -67,7 +40,6 @@ export default function MusicPlayer() {
       <audio
         ref={audioRef}
         src="/parents-wedding-invitation/music/wedding.mp3"
-        autoPlay
         loop
         preload="auto"
         onPlay={() => setIsPlaying(true)}
@@ -94,4 +66,6 @@ export default function MusicPlayer() {
       </button>
     </>
   );
-}
+});
+
+export default MusicPlayer;

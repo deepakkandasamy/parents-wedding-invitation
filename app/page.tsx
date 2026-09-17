@@ -1,9 +1,10 @@
 "use client";
 
 import Countdown from "./components/Countdown";
-import MusicPlayer from "./components/MusicPlayer";
+import MusicPlayer, { type MusicPlayerHandle } from "./components/MusicPlayer";
 import ChildhoodReveal from "./components/ChildhoodReveal";
 import Image from "next/image";
+import { useRef, useState } from "react";
 
 const WEDDING = {
   bride: "Ashwarya",
@@ -23,11 +24,32 @@ const WEDDING = {
 };
 
 export default function Home() {
+  const [isInvitationOpen, setIsInvitationOpen] = useState(false);
+  const musicPlayerRef = useRef<MusicPlayerHandle>(null);
+
+  const openInvitation = () => {
+    musicPlayerRef.current?.play();
+    setIsInvitationOpen(true);
+  };
+
   return (
-
-    <main className="site-shell">
-
-      <MusicPlayer />
+    <main className={`site-shell ${isInvitationOpen ? "is-invitation-open" : ""}`}>
+      <MusicPlayer ref={musicPlayerRef} />
+      {!isInvitationOpen && (
+        <div className="invitation-gate" role="dialog" aria-modal="true" aria-label="Wedding invitation">
+          <button type="button" className="invitation-gate-card" onClick={openInvitation}>
+            <Image
+              src="/parents-wedding-invitation/images/popup.png"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="invitation-gate-image"
+            />
+            <span className="invitation-gate-copy">You&apos;re invited!<br />Tap for details</span>
+          </button>
+        </div>
+      )}
       {/* HERO */}
       <section className="hero">
         <div className="hero-grain" />
