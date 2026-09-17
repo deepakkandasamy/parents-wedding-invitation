@@ -48,10 +48,12 @@ export default function Home() {
         </div>
         <div className="hero-content">
           <h2 className="hero-parents">
-            Geetha and Dileep Kumar <span>&amp;</span> K Malliga and T Kandasamy
+            <span>Geetha and Dileep Kumar</span>
+            <span className="hero-parents-amp">&amp;</span>
+            <span>K Malliga and T Kandasamy</span>
           </h2>
           <p className="hero-invitation-copy">
-            joyfully invite you to celebrate the wedding of their beloved children
+            invite you to the wedding of their beloved children
           </p>
 
           <h1 className="hero-title">
