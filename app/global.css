@@ -146,7 +146,32 @@ a {
   max-width: 1150px;
   width: 100%;
   margin: auto;
-  padding: 80px 10px 40px;
+  padding: 28px 10px 30px;
+}
+
+.hero-parents {
+  max-width: 660px;
+  margin: 0 0 18px;
+  color: var(--forest-deep);
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 4vw, 43px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.hero-parents span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero-invitation-copy {
+  max-width: 450px;
+  margin: 0 0 28px;
+  color: #80603b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(15px, 1.7vw, 20px);
+  line-height: 1.5;
 }
 
 .hero-kicker {
@@ -437,6 +462,16 @@ a {
   font-size: clamp(30px, 6vw, 50px);
   line-height: 0.98;
   letter-spacing: -0.055em;
+}
+
+.chapter-heading {
+  max-width: 520px;
+  color: var(--forest-deep);
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  font-size: clamp(62px, 8.5vw, 112px) !important;
+  font-weight: 700;
+  line-height: 0.86 !important;
+  letter-spacing: -0.065em !important;
 }
 
 .event-card {
@@ -777,7 +812,7 @@ a {
   }
 
   .hero-content {
-    padding: 100px 4px 35px;
+    padding: 30px 4px 35px;
   }
 
   .hero-title {

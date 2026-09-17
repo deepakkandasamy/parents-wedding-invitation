@@ -47,10 +47,12 @@ export default function Home() {
           />
         </div>
         <div className="hero-content">
-          <div className="hero-kicker">
-            <span className="line" />
-            <span>A new chapter begins</span>
-          </div>
+          <h2 className="hero-parents">
+            Geetha and Dileep Kumar <span>&amp;</span> K Malliga and T Kandasamy
+          </h2>
+          <p className="hero-invitation-copy">
+            joyfully invite you to celebrate the wedding of their beloved children
+          </p>
 
           <h1 className="hero-title">
             <span>{WEDDING.bride}</span>
@@ -71,22 +73,12 @@ export default function Home() {
 
         <div className="section-label">
           <span>01</span>
-          <span>THE Invitation</span>
+          <span>THE CEREMONY</span>
         </div>
 
         <div className="details-grid">
           <div className="details-intro">
-            <h2 className="parents-names">
-              Geetha and Dileep Kumar
-              <br />
-              <i>&amp;</i>
-              <br />
-              K Malliga and T Kandasamy
-            </h2>
-
-            <p className="body-copy">
-              joyfully invite you to celebrate the wedding of their beloved children
-            </p>
+            <h2 className="chapter-heading">A new chapter begins.</h2>
           </div>
 
 
@@ -134,14 +126,7 @@ export default function Home() {
 
           <div className="invitation-copy">
             <div className="mini-flower">✳</div>
-            <p>
-              We are delighted to invite you to join us as we celebrate
-              our wedding and the beginning of a new journey together.
-            </p>
-            <p className="muted-copy">
-              Your presence, blessings, and good wishes would mean the
-              world to us.
-            </p>
+            <p>Your gracious presence and good wishes to the couple would mean the world to us.</p>
           </div>
         </div>
       </section>
@@ -190,7 +175,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="footer">
         <div className="footer-monogram">A <span>×</span> D</div>
-        <p>With love, ஐஸ்வர்யா &amp; ദീപക്</p>
+        <p>With Love, Geetha, Dileep and Lakshmi</p>
         <span className="footer-date">15 · 11 · 2026</span>
       </footer>
     </main >
