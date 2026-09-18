@@ -13,7 +13,7 @@ const WEDDING = {
 
   // TODO: Replace these once your venue is finalized.
   venue: "The Avenue Center Hotel",
-  location: "Panampilly Nagar,Ernakulam, Kerala, India",
+  location: "Panampilly Nagar, Ernakulam, Kerala",
   ceremonyTime: "11:00 AM",
 
   // TODO: Replace with your actual Google Maps URL.
@@ -199,7 +199,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="footer">
         <div className="footer-monogram">A <span>×</span> D</div>
-        <p>With Love, Geetha, Dileep and Lakshmi</p>
+        <p>With Love, Dileep, Geetha and Lakshmi</p>
         <span className="footer-date">15 · 11 · 2026</span>
       </footer>
     </main >
